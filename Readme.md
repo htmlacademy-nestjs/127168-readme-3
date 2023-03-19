@@ -1,7 +1,7 @@
 # Личный проект «Readme»
 
 * Студент: [Dima Samoshkin](https://up.htmlacademy.ru/nodejs-2/3/user/127168).
-* Наставник: `Неизвестно`.
+* Наставник: [Евгений Наумов](https://htmlacademy.ru/profile/naumov_evg).
 
 ---
 
