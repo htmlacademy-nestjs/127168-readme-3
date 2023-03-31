@@ -5,10 +5,7 @@ export class UserRdo {
   public id: string;
 
   @Expose()
-  public avatar: string;
-
-  @Expose()
-  public dateBirth: string;
+  public login: string;
 
   @Expose()
   public email: string;
@@ -18,4 +15,7 @@ export class UserRdo {
 
   @Expose()
   public lastname: string;
+
+  @Expose()
+  public avatar: string;
 }
