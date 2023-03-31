@@ -1,9 +1,9 @@
 import { ConflictException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
-import { BlogUserMemoryRepository } from '../blog-user/blog-user-memory.repository.js';
-import { BlogUserEntity } from '../blog-user/blog-user.entity.js';
-import { AUTH_USER_EXISTS, AUTH_USER_NOT_FOUND, AUTH_USER_PASSWORD_WRONG } from './authentication.constant.js';
-import { CreateUserDto } from './dto/create-user.dto.js';
-import { LoginUserDto } from './dto/login-user.dto.js';
+import { BlogUserMemoryRepository } from '../blog-user/blog-user-memory.repository';
+import { BlogUserEntity } from '../blog-user/blog-user.entity';
+import { AUTH_USER_EXISTS, AUTH_USER_NOT_FOUND, AUTH_USER_PASSWORD_WRONG } from './authentication.constant';
+import { CreateUserDto } from './dto/create-user.dto';
+import { LoginUserDto } from './dto/login-user.dto';
 
 @Injectable()
 export class AuthenticationService {
