@@ -1,5 +1,5 @@
 import {IsNumber, IsString, Max, Min} from 'class-validator';
-import { DbEnvValidationMessage, MAX_PORT, MIN_PORT } from '../constant';
+import { DbEnvValidationMessage, MAX_PORT, MIN_PORT } from '../config-constant';
 
 export class DbEnvironment {
   @IsString({
