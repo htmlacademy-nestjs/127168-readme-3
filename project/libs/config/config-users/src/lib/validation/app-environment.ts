@@ -1,5 +1,5 @@
 import { IsIn, IsNumber, IsString, Max, Min } from 'class-validator';
-import { AppEnvValidationMessage, MAX_PORT, MIN_PORT, environmentModes } from './constant';
+import { AppEnvValidationMessage, MAX_PORT, MIN_PORT, environmentModes } from '../constant';
 
 export class AppEnvironment {
   @IsString({
