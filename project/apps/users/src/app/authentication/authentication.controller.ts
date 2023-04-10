@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, Patch, Post } from '@nestjs/common';
 import { AuthenticationService } from './authentication.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { fillObject } from '@project/util/util-core'
@@ -6,6 +6,7 @@ import { UserRdo } from './rdo/user.rdo';
 import { LoginUserDto } from './dto/login-user.dto';
 import { LoggedUserRdo } from './rdo/logged-user.rdo';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { NewPasswordDto } from './dto/new-password.dto';
 
 @ApiTags('authentication')
 @Controller('auth')
@@ -31,7 +32,7 @@ export class AuthenticationController {
   })
   @ApiResponse({
     status: HttpStatus.UNAUTHORIZED,
-    description: 'Password or Login is wrong.',
+    description: 'Password or login is wrong.',
   })
   @Post('login')
   @HttpCode(HttpStatus.OK)
@@ -49,5 +50,28 @@ export class AuthenticationController {
   public async show(@Param('id') id: string) {
     const existUser = await this.authService.getUser(id);
     return fillObject(UserRdo, existUser);
+  }
+
+  @ApiResponse({
+    type: LoggedUserRdo,
+    status: HttpStatus.OK,
+    description: 'User has been successfully changed the password.'
+  })
+  @ApiResponse({
+    status: HttpStatus.UNAUTHORIZED,
+    description: 'Password or login is wrong.',
+  })
+  @ApiResponse({
+    status: HttpStatus.NOT_FOUND,
+    description: 'User with id was not founded',
+  })
+  @HttpCode(HttpStatus.OK)
+  @Patch(':id/password')
+  public async changePassword(
+    @Param('id') id: string,
+    @Body() dto: NewPasswordDto
+  ) {
+    const existUser = await this.authService.setNewPassword(id, dto);
+    return fillObject(LoggedUserRdo, existUser);
   }
 }

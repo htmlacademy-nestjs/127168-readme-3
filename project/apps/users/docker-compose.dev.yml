@@ -21,10 +21,10 @@ services:
       timeout: 10s
       retries: 5
 
-  readme.user.mongo.ui:
+  readme.users.mongo.ui:
     image: mongo-express
     restart: always
-    container_name: readme.user.mongo.ui
+    container_name: readme.users.mongo.ui
     ports:
       - 8081:8081
     environment:
